@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:39:37 by root              #+#    #+#             */
-/*   Updated: 2022/12/12 15:28:24 by root             ###   ########.fr       */
+/*   Updated: 2022/12/24 19:18:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
 		emp1.DecreaseGrade();
 		std::cout << emp1;
 	}
-	catch (Bureaucrat::LowGradeExeception& e) {
+	catch (Bureaucrat::LowGradeException& e) {
 		std::cout << "--- low ----\n";
 		std::cout << e.what() << std::endl;
 	}
@@ -44,7 +44,7 @@ int main(void)
 		emp1.IncreaseGrade();
 		std::cout << emp1;
 	}
-	catch (Bureaucrat::HighGradeExeception& e) {
+	catch (Bureaucrat::HighGradeException& e) {
 		std::cout << "-------\n";
 		std::cout << e.what() << std::endl;
 	}
@@ -63,11 +63,11 @@ int main(void)
 		emp2.IncreaseGrade();
 		std::cout << emp2;
 	}
-	catch (Bureaucrat::LowGradeExeception& e) {
+	catch (Bureaucrat::LowGradeException& e) {
 		std::cout << "--- low ----\n";
 		std::cout << e.what() << std::endl;
 	}
-	catch (Bureaucrat::HighGradeExeception& e) {
+	catch (Bureaucrat::HighGradeException& e) {
 		std::cout << "--- high ----\n";
 		std::cout << e.what() << std::endl;
 	}
