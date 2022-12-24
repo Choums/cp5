@@ -13,13 +13,34 @@
 #include "../includes/Bureaucrat.hpp"
 
 	/*  Constructors/Destructor */
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
-{}
+Bureaucrat::Bureaucrat(std::string name, int grade)
+{
+	if (name.empty()) {
+		throw std::exception(); return; }
+	if (grade > 150)
+		throw Bureaucrat::LowGradeExeception();
+	else if (grade < 1)
+		throw Bureaucrat::HighGradeExeception();
+	else
+	{
+		this->_name = name;
+		this->_grade = grade;
+	}
+}
 
 Bureaucrat::Bureaucrat(Bureaucrat const& cpy)
 {
-	this->_name = cpy._name;
-	this->_grade = cpy._grade;
+	if (cpy._name.empty()) {
+		throw std::exception(); return; }
+	if (cpy._grade > 150)
+		throw Bureaucrat::LowGradeExeception();
+	else if (cpy._grade < 1)
+		throw Bureaucrat::HighGradeExeception();
+	else
+	{
+		this->_name = cpy._name;
+		this->_grade = cpy._grade;
+	}
 }
 
 Bureaucrat::~Bureaucrat()
@@ -31,14 +52,14 @@ Bureaucrat::~Bureaucrat()
 void    Bureaucrat::IncreaseGrade()
 {
 	if ((this->_grade - 1) < 1)
-		Bureaucrat::HighGradeExeception();
+		throw Bureaucrat::HighGradeExeception();
 	else this->_grade--;
 }
 
 void    Bureaucrat::DecreaseGrade()
 {
 	if ((this->_grade + 1) > 150)
-		Bureaucrat::LowGradeExeception();
+		throw Bureaucrat::LowGradeExeception();
 	else this->_grade++;
 }
 
