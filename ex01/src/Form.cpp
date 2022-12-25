@@ -103,12 +103,12 @@ Form::GradeTooLowException::~GradeTooLowException() throw() {}
 /*	Stream Operator Overload */
 std::ostream&	operator<<(std::ostream &flux, Form const& form)
 {
-	flux << "Form " << form.getName();
-	flux << ", need Grade: " << form.getToSign() << "to be signed.\n";
+	flux << "< Form: " << form.getName();
+	flux << ", need Grade " << form.getToSign() << " to be signed.\n";
 	if (form.getSigned())
 		flux << GREEN << "Is already signed !\n" << END;
 	else
 		flux << RED << "Need to be signed !\n" << END;
-	flux << "Need Grade " << form.getExec() << "to be executed." << std::endl;
+	flux << "Need Grade " << form.getExec() << " to be executed. >" << std::endl;
 	return (flux);
 }

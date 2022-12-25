@@ -6,7 +6,7 @@ SRCDIR        =    ./src
 INCDIR        =    ./includes
 OBJDIR        =    ./obj
 
-HEADER		=	Bureaucrat.hpp
+HEADER		=	Bureaucrat.hpp\
 				Form.hpp
 
 # src / obj files
@@ -19,7 +19,7 @@ OBJ        = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
 # compiler
 CC        = c++
-CFLAGS    = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
+CFLAGS    = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 
 all:	obj $(NAME)

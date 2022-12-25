@@ -12,13 +12,14 @@
 
 #pragma once
 
-#include "./Bureaucrat.hpp"
+# include <iostream>
+# include "Bureaucrat.hpp"
 
-class Bureacrat;
+class Bureaucrat;
 
-#define RED "\033[1;31m"
-#define GREEN "\033[1;32m"
-#define END "\033[0m"
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define END "\033[0m"
 
 class   Form {
 	public:

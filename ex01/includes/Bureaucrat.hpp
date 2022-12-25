@@ -6,18 +6,20 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 13:04:34 by root              #+#    #+#             */
-/*   Updated: 2022/12/24 18:55:39 by marvin           ###   ########.fr       */
+/*   Updated: 2022/12/25 16:33:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+# include <iostream>
+#include "Form.hpp"
 
-#include "./Form.hpp"
+# define RED "\033[1;31m"
+# define GREEN "\033[1;32m"
+# define END "\033[0m"
 
 class Form;
-class Bureaucrat;
 
 class Bureaucrat {
 	public:

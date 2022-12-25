@@ -6,11 +6,12 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:26:53 by root              #+#    #+#             */
-/*   Updated: 2022/12/24 18:42:32 by marvin           ###   ########.fr       */
+/*   Updated: 2022/12/25 16:56:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
 	/*  Constructors/Destructor */
 Bureaucrat::Bureaucrat(std::string name, int grade)
@@ -66,15 +67,15 @@ void    Bureaucrat::DecreaseGrade()
 void	Bureaucrat::signForm(Form& form)
 {
 	if (form.getSigned())
-		std::cout << RED << this->getName() << "couldn't sign " << form.getName() << " because form is already signed !" << RED << std::endl;
+		std::cout << RED << this->getName() << " couldn't sign " << form.getName() << " because form is already signed !" << END << std::endl;
 	else
 	{
 		try {
 			form.beSigned(*this);
 			std::cout << GREEN << this->getName() << " signed " << form.getName() << END << std::endl;
 		}
-		catch (std::exception& except) {
-			std::cout << RED << this->getName() << "couldn't sign " << form.getName() << " because " << except.what() << END;
+		catch (Form::GradeTooLowException& except) {
+			std::cout << RED << this->getName() << " couldn't sign " << form.getName() << " because " << except.what() << END;
 		}
 	}
 }
