@@ -21,20 +21,19 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const& cpy) : Form(
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << RED << "[ Shrubbery Form " << this->_name << " has been erased ! ]" << END << std::endl;
+	std::cout << RED << "[ Robotomy Form " << this->_name << " has been erased ! ]" << END << std::endl;
 }
 
-void	RobotomyRequestForm::execute_form()
+void	RobotomyRequestForm::execute_form() const
 {
+	std::cout << "Start " << this->_target << " Operation !" << std::endl;
 	std::cout << "PZZZZZZZ PZZZZZZ PZZZZZ" << std::endl;
 	std::cout << "CRIC CRIC PZZZZZ CRAC" << std::endl;
-	srand(NULL);
-	if (std::cout << rand() % 2)
-	{
-		std::cout << "\nOPERATION SUCCESSED\n";
-	}
+	srand(time(NULL));
+	if (rand() % 2)
+		std::cout << GREEN << "OPERATION SUCCESSED" << std::endl << "Congratulation "<< this->_target << " , you've come a step further to greatness !" << END << std::endl;
 	else
-		std::cout << "\nOPERATION FAILED\n";
+		std::cout << RED << "OPERATION FAILED" << std::endl << "The damages on "<< this->_target <<" are irreversible !" << END << std::endl;
 
 
 }

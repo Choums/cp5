@@ -31,7 +31,7 @@ class   Form {
 			/*	Methods */
 		void			beSigned(Bureaucrat const& bur);
 		void			execute(Bureaucrat const& executor) const;
-		virtual void	execute_form() = 0;
+		virtual void	execute_form() const = 0;
 			/*	Assignment Operator */
 		Form&	operator=(Form const& obj);
 

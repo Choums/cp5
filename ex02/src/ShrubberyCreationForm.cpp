@@ -25,11 +25,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 	/*	Methods */
-void	ShrubberyCreationForm::execute_form()
+void	ShrubberyCreationForm::execute_form() const
 {
 	std::ofstream	ofs;
 
-	ofs.open(getTarget() + "_shrubbery", std::ofstream::out);
+	ofs.open((getTarget() + "_shrubbery").c_str(), std::ofstream::out);
 
 	if (!ofs.is_open())
 		return ;

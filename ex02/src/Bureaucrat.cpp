@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:26:53 by root              #+#    #+#             */
-/*   Updated: 2022/12/25 16:56:27 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/01 17:33:10 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,20 @@ void	Bureaucrat::signForm(Form& form)
 		catch (Form::GradeTooLowException& except) {
 			std::cout << RED << this->getName() << " couldn't sign " << form.getName() << " because " << except.what() << END;
 		}
+	}
+}
+
+void	Bureaucrat::executeForm(Form const& form)
+{
+	try {
+		form.execute(*this);
+		std::cout << GREEN << this->_name << " executed " << form.getName() << END << std::endl;
+	}
+	catch (std::string& except) {
+		std::cout << RED << except << END;
+	}
+	catch (Form::GradeTooLowException& except) {
+		std::cout << RED << except.what() << END;
 	}
 }
 

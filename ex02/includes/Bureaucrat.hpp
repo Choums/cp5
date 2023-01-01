@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 13:04:34 by root              #+#    #+#             */
-/*   Updated: 2022/12/25 16:33:44 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/01 16:39:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat {
 		void	IncreaseGrade();
 		void	DecreaseGrade();
 		void	signForm(Form& form);
+		void	executeForm(Form const& form);
 
 			/*	Assignment Operator */
 		Bureaucrat&	operator=(Bureaucrat const& obj);

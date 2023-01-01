@@ -1,4 +1,4 @@
-NAME    = Form
+NAME    = AForm
 OS		= $(shell uname)
 
 # directories
@@ -7,12 +7,18 @@ INCDIR        =    ./includes
 OBJDIR        =    ./obj
 
 HEADER		=	Bureaucrat.hpp\
-				Form.hpp
+				Form.hpp\
+				PresidentialPardonForm.hpp\
+				ShrubberyCreationForm.hpp\
+				RobotomyRequestForm.hpp
 
 # src / obj files
 SRC        =	main.cpp\
 				Bureaucrat.cpp\
-				Form.cpp
+				Form.cpp\
+				PresidentialPardonForm.cpp\
+				ShrubberyCreationForm.cpp\
+				RobotomyRequestForm.cpp
 				
 
 OBJ        = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
@@ -36,7 +42,7 @@ $(NAME):		$(OBJ)
 				$(CC) $(CFLAGS) $(OBJ) -lm -o $(NAME)
 
 clean:
-		rm -rf $(OBJDIR)
+		rm -rf $(OBJDIR) *_shrubbery
 
 fclean:	clean
 		rm -rf $(NAME)

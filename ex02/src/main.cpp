@@ -11,34 +11,45 @@
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
 int main(void)
 {
-	try {
-		Form	form("First", 50, 0);
-	}
-	catch (Form::GradeTooHighException &except) {
-		std::cout << except.what();
-		// return (1);
-	}
-	catch (std::exception &except) {
-		std::cout << "Invalid name" << std::endl;
-		// return (1);
-	}
-	std::cout << "2------" << std::endl;
+	std::cout << "-----	fst	-----" << std::endl;
 	
-	Form 		form("Contrat secret", 50, 20);
-	Bureaucrat	emp1("Big Boss", 1);
-	Bureaucrat	emp2("Stagiare", 140);
-
-	emp2.signForm(form);
-	emp1.signForm(form);
-	emp1.signForm(form);
-	std::cout << "3------" << std::endl;
+	Form		*form1 = new ShrubberyCreationForm("form1", "sapin");
+	Bureaucrat	*bur = new Bureaucrat("Charles", 140);
 	
-	Form	con("Project", 100, 50);
-	std::cout << form;
-	std::cout << con;
+	bur->signForm(*form1);
+	bur->executeForm(*form1);
 
+	std::cout << "-----	sec	-----" << std::endl;
+
+	Bureaucrat	*bur2 = new Bureaucrat("Louis", 40);
+	Form		*form2 = new RobotomyRequestForm("cyborg", bur2->getName());
+
+	bur2->signForm(*form2);
+	bur2->executeForm(*form2);
+
+	std::cout << "-----	thr	-----" << std::endl;
+
+	Bureaucrat	*bur3 = new Bureaucrat("Saul", 150);
+	Bureaucrat	*boss = new Bureaucrat("Director", 3);
+	Form		*form3 = new PresidentialPardonForm("Pardon", bur3->getName());
+
+	boss->signForm(*form3);
+	boss->executeForm(*form3);
+
+	std::cout << "-----	del	-----" << std::endl;
+	delete form1;
+	delete bur;
+	delete form2;
+	delete bur2;
+	delete form3;
+	delete bur3;
+	delete boss;
 	return (0);
 }

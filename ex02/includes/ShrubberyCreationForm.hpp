@@ -23,7 +23,7 @@ class ShrubberyCreationForm : public Form {
 		virtual ~ShrubberyCreationForm();
 
 			/*	Methods */
-		virtual void	execute_form();
+		virtual void	execute_form() const;
 
 		ShrubberyCreationForm&	operator=(ShrubberyCreationForm const& obj);
 };

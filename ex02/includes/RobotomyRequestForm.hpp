@@ -14,6 +14,7 @@
 
 #include "./Form.hpp"
 #include <cstdlib>
+#include <time.h>
 
 class RobotomyRequestForm : public Form {
 	public:
@@ -24,7 +25,7 @@ class RobotomyRequestForm : public Form {
 		virtual ~RobotomyRequestForm();
 
 			/*	Methods */
-		virtual void	execute_form();
+		virtual void	execute_form() const;
 
 		RobotomyRequestForm&	operator=(RobotomyRequestForm const& obj);
 };

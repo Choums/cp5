@@ -55,12 +55,30 @@ Form::~Form()
 }
 
 	/*	Methods */
-// void	Form::beSigned(Bureaucrat const& bur)
-// {
-// 	if (bur.getGrade() >= this->_to_sign)
-// 		throw GradeTooLowException();
-// 	else this->_signed = true;
-// }
+void	Form::beSigned(Bureaucrat const& bur)
+{
+	if (bur.getGrade() >= this->_to_sign)
+		throw GradeTooLowException();
+	else this->_signed = true;
+}
+
+/*
+ *	Vous devez vous assurer que le formulaire est signé et que le grade
+ *	du bureaucrate tentant de l’exécuter est suffisant. Sinon, jetez une exception pertinente.
+ *	Que vous souhaitiez checker les prérequis dans chaque classe concrète ou dans la classe
+ *	de base (puis appeler une autre fonction pour exécuter le formulaire), c’est votre choix.
+ *	Toutefois, une de ces deux manières de faire est plus propre que l’autre.
+*/
+void	Form::execute(Bureaucrat const& executor) const
+{
+	// std::cout << executor.getGrade() << " | " << this->getExec() << std::endl;
+	if (!getSigned())
+		throw std::string("{ Form is not signed ! }\n");
+	else if (executor.getGrade() > this->getExec())
+		throw GradeTooLowException();
+	else
+		execute_form();
+}
 
 	/*	Accessors */
 std::string	Form::getName() const
