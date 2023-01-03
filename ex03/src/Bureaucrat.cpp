@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:26:53 by root              #+#    #+#             */
-/*   Updated: 2023/01/01 17:33:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/03 11:45:53 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& cpy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "[ " << this->_name << " has been fired ! ]" << std::endl;
+	std::cout << RED << "[ " << this->_name << " has been fired ! ]" << END << std::endl;
 }
 
 	/*  Methods */

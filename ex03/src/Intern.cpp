@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 
 #include "../includes/Intern.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 
 Intern::Intern()
 {
@@ -18,7 +21,9 @@ Intern::Intern()
 }
 
 Intern::Intern(Intern const& cpy)
-{}
+{
+	(void)cpy;
+}
 
 Intern::~Intern()
 {
@@ -27,9 +32,29 @@ Intern::~Intern()
 
 Form*	Intern::makeForm(std::string name, std::string target)
 {
-	Form	*form;
-	
-	std::cout << RED << "Intern cannot find " << name << " form !" << END << std::endl;
+	std::string	tab[3] = {	"shrubbery creation",
+							"robotomy request",
+							"presidential pardon"};
+
+	int	i(-1);
+	while (++i < 3)
+		if (!tab[i].compare(name))
+			break;
+	switch (i)
+	{
+		case 0:
+			std::cout << GREEN << "Intern creates Shrubbery form" << END << std::endl;
+			return (new ShrubberyCreationForm(name, target));
+		case 1:
+			std::cout << GREEN << "Intern creates Robotomy form" << END << std::endl;
+			return (new RobotomyRequestForm(name, target));
+		case 2:
+			std::cout << GREEN << "Intern creates Presidential pardon form" << END << std::endl;
+			return (new PresidentialPardonForm(name, target));
+		case 3:
+			throw std::string("Intern cannot find " + name + " form !\n");
+			break;
+	}
 	return (NULL);
 }
 
@@ -37,5 +62,5 @@ Intern&	Intern::operator=(Intern const& obj)
 {
 	if (this != &obj)
 	{}
-	return (*this)
+	return (*this);
 }

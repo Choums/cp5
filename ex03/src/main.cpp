@@ -15,41 +15,39 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/Intern.hpp"
 
 int main(void)
 {
 	std::cout << "-----	fst	-----" << std::endl;
 	
-	Form		*form1 = new ShrubberyCreationForm("form1", "sapin");
-	Bureaucrat	*bur = new Bureaucrat("Charles", 140);
+	try {
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+		Bureaucrat bur("Charles", 25);
+		bur.signForm(*rrf);
+		bur.executeForm(*rrf);
+		delete rrf;
+	}
+	catch (std::string& except) {
+		std::cout << except;
+	}
 	
-	bur->signForm(*form1);
-	bur->executeForm(*form1);
+	std::cout << "\n-----	sec	-----\n" << std::endl;
+	try {
+		Intern someRandomIntern;
+		Form* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Jardin");
 
-	std::cout << "-----	sec	-----" << std::endl;
-
-	Bureaucrat	*bur2 = new Bureaucrat("Louis", 40);
-	Form		*form2 = new RobotomyRequestForm("cyborg", bur2->getName());
-
-	bur2->signForm(*form2);
-	bur2->executeForm(*form2);
-
-	std::cout << "-----	thr	-----" << std::endl;
-
-	Bureaucrat	*bur3 = new Bureaucrat("Saul", 150);
-	Bureaucrat	*boss = new Bureaucrat("Director", 3);
-	Form		*form3 = new PresidentialPardonForm("Pardon", bur3->getName());
-
-	boss->signForm(*form3);
-	boss->executeForm(*form3);
-
-	std::cout << "-----	del	-----" << std::endl;
-	delete form1;
-	delete bur;
-	delete form2;
-	delete bur2;
-	delete form3;
-	delete bur3;
-	delete boss;
+		Bureaucrat bur("Jardinier", 150);
+		bur.signForm(*rrf);
+		bur.executeForm(*rrf);
+		delete rrf;
+	}
+	catch (std::string& except) {
+		std::cout << except;
+	}
 	return (0);
 }
