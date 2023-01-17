@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:26:53 by root              #+#    #+#             */
-/*   Updated: 2022/12/24 19:18:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:05:37 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
 	/*  Constructors/Destructor */
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	if (name.empty()) {
 		throw std::exception(); return; }
@@ -22,10 +22,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 	else if (grade < 1)
 		throw Bureaucrat::HighGradeException();
 	else
-	{
-		this->_name = name;
 		this->_grade = grade;
-	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const& cpy)
@@ -37,10 +34,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& cpy)
 	else if (cpy._grade < 1)
 		throw Bureaucrat::HighGradeException();
 	else
-	{
-		this->_name = cpy._name;
-		this->_grade = cpy._grade;
-	}
+		*this = cpy;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -68,8 +62,7 @@ Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& obj)
 {
 	if (this != &obj)
 	{
-		this->_name = obj._name;
-		this->_grade = obj._grade;
+		return (*this);
 	}
 	return (*this);
 }

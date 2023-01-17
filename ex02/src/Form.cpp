@@ -13,7 +13,7 @@
 #include "../includes/Form.hpp"
 
 		/*  Constructors/Destructor */
-Form::Form(std::string const &name, int to_sign, int exec, std::string const& target)
+Form::Form(std::string const &name, int to_sign, int exec, std::string const& target) : _name(name), _signed(false), _to_sign(to_sign), _execute(exec), _target(target)
 {
 	if (name.empty() || target.empty()) {
 		throw std::exception();	return; }
@@ -21,17 +21,9 @@ Form::Form(std::string const &name, int to_sign, int exec, std::string const& ta
 		throw GradeTooLowException();
 	else if (to_sign < 1 || exec < 1)
 		throw GradeTooHighException();
-	else
-	{
-		this->_name = name;
-		this->_signed = false;
-		this->_to_sign = to_sign;
-		this->_execute = exec;
-		this->_target = target;
-	}
 }
 
-Form::Form(Form const& cpy)
+Form::Form(Form const& cpy) : _name(cpy._name), _signed(false), _to_sign(cpy._to_sign), _execute(cpy._execute), _target(cpy._target)
 {
 	if (cpy._name.empty() || cpy._target.empty()) {
 		throw std::exception();	return; }
@@ -39,14 +31,6 @@ Form::Form(Form const& cpy)
 		throw GradeTooLowException();
 	else if (cpy._to_sign < 1 || cpy._execute < 1)
 		throw GradeTooHighException();
-	else
-	{
-		this->_name = cpy._name;
-		this->_signed = cpy._signed;
-		this->_to_sign = cpy._to_sign;
-		this->_execute = cpy._execute;
-		this->_target = cpy._target;
-	}
 }
 
 Form::~Form()
@@ -110,13 +94,7 @@ std::string	Form::getTarget() const
 Form&	Form::operator=(Form const& obj)
 {
 	if (this != &obj)
-	{
-		this->_name = obj._name;
-		this->_signed = obj._signed;
-		this->_to_sign = obj._to_sign;
-		this->_execute = obj._execute;
-		this->_target = obj._target;
-	}
+		return (*this);
 	return (*this);
 }
 

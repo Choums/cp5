@@ -16,10 +16,10 @@ SRC        =	main.cpp\
 				
 
 OBJ        = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
-
+OBJINC		= $(addprefix $(INCDIR)/,$(HEADER))
 # compiler
 CC        = c++
-CFLAGS    = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+CFLAGS    = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
 
 
 all:	obj $(NAME)
@@ -28,7 +28,7 @@ obj:
 		mkdir -p $(OBJDIR)
 
 
-$(OBJDIR)/%.o:	$(SRCDIR)/%.cpp	${INCDIR}
+$(OBJDIR)/%.o:	$(SRCDIR)/%.cpp	${OBJINC}
 				$(CC) $(CFLAGS) -I $(INCDIR) -o $@ -c $<
 
 

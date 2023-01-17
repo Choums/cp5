@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 14:39:37 by root              #+#    #+#             */
-/*   Updated: 2022/12/24 19:18:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:06:03 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,5 @@ int main(void)
 	catch (std::exception &name) {
 		return (empty_name());
 	}
-	std::cout << "-----" << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:26:53 by root              #+#    #+#             */
-/*   Updated: 2023/01/01 17:33:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:26:09 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/Form.hpp"
 
 	/*  Constructors/Destructor */
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	if (name.empty()) {
 		throw std::exception(); return; }
@@ -23,10 +23,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
 	else if (grade < 1)
 		throw Bureaucrat::HighGradeException();
 	else
-	{
-		this->_name = name;
 		this->_grade = grade;
-	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const& cpy)
@@ -38,10 +35,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const& cpy)
 	else if (cpy._grade < 1)
 		throw Bureaucrat::HighGradeException();
 	else
-	{
-		this->_name = cpy._name;
-		this->_grade = cpy._grade;
-	}
+		*this = cpy;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -98,10 +92,7 @@ void	Bureaucrat::executeForm(Form const& form)
 Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& obj)
 {
 	if (this != &obj)
-	{
-		this->_name = obj._name;
-		this->_grade = obj._grade;
-	}
+		return (*this);
 	return (*this);
 }
 

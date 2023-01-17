@@ -31,7 +31,7 @@ void	RobotomyRequestForm::execute_form() const
 	std::cout << "CRIC CRIC PZZZZZ CRAC" << std::endl;
 	srand(time(NULL));
 	if (rand() % 2)
-		std::cout << GREEN << "OPERATION SUCCESSED" << std::endl << "Congratulation "<< this->_target << " , you've come a step further to greatness !" << END << std::endl;
+		std::cout << GREEN << "OPERATION SUCCESSED" << std::endl << "Congratulation "<< this->_target << ", you've come a step further to greatness !" << END << std::endl;
 	else
 		std::cout << RED << "OPERATION FAILED" << std::endl << "The damages on "<< this->_target <<" are irreversible !" << END << std::endl;
 

@@ -41,10 +41,10 @@ class   Form {
 		int				getExec() const;
 
 	private:
-		std::string	_name;
-		bool		_signed;
-		int 		_to_sign;
-		int			_execute;
+		std::string	const	_name;
+		bool				_signed;
+		int 		const	_to_sign;
+		int			const	_execute;
 
 
 	public: /*  Exceptions */

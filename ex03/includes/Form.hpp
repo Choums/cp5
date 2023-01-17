@@ -43,11 +43,11 @@ class   Form {
 		std::string		getTarget() const;
 
 	protected:
-		std::string	_name;
-		bool		_signed;
-		int 		_to_sign;
-		int			_execute;
-		std::string	_target;
+		std::string	const	_name;
+		bool				_signed;
+		int 		const	_to_sign;
+		int			const	_execute;
+		std::string	const	_target;
 
 
 	public: /*  Exceptions */

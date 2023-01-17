@@ -17,7 +17,7 @@ OBJ        = $(addprefix $(OBJDIR)/,$(SRC:.cpp=.o))
 
 # compiler
 CC        = c++
-CFLAGS    = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
+CFLAGS    = -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 
 all:	obj $(NAME)

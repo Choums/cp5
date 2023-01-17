@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 13:04:34 by root              #+#    #+#             */
-/*   Updated: 2022/12/24 19:18:42 by marvin           ###   ########.fr       */
+/*   Updated: 2023/01/17 18:04:37 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class Bureaucrat {
 		int			getGrade() const;
 		
 	private:
-		std::string _name;
-		int         _grade; /*	Range 150 to 1 */
+		std::string const	_name;
+		int         		_grade; /*	Range 150 to 1 */
 	/*	 --------------------------------*/
 	/*	Exeception */
 	public:
